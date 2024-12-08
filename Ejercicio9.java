@@ -2,36 +2,31 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Metodos;
+package Arrays.dos;
+
+import java.util.Scanner;
 
 /**
-9.- Realiza un método en Java para encontrar todos los números primos menores
-que 100.
-Salida esperada:
-3,5,7,11,13,17,19,29,31,41,43,59,61,71,73
-
+9.- Realiza una aplicación que permita la introducción de una cadena y cuente
+el número de palabras que hay en ella. Tienes que mostrar cada una de las
+palabras en una línea separada. 
  */
-
 public class Ejercicio9 {
     public static void main(String[] args) {
-        sonPrimos();
-    }
-      
-    static int sonPrimos(){
-        for (int i = 2; i < 100; i++) {
-            boolean esPrimo = true; //Creemos que el numero es primo
-            
-            for (int j = 2; j < i; j++) {
-                if (i % j == 0) { //Si es divisible por j no es primo
-                    esPrimo = false;
-                    break;
-                }
-            }
-            if (esPrimo) {
-                System.out.print(i + ",");
-            }
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.print("Introduce una cadena: ");
+        String cadena = sc.nextLine();
+        
+       
+        String[] palabras = cadena.split(" ");
+        
+        for (String palabra : palabras) {
+            System.out.println(palabra);
         }
-        return 0;
+        
+        int numPalabras = palabras.length;
+        System.out.println("Hay un total de " + numPalabras + " palabras.");
+        
     }
-   
 }

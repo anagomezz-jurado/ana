@@ -2,34 +2,37 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Metodos.ejercicios2;
+package Arrays.dos;
 
 import java.util.Scanner;
 
 /**
-10. Crea una función llamada "Signo", que reciba un número real, y devuelva un
-número entero con el valor: -1 si el número es negativo, 1 si es positivo o 0 si es
-cero
+10.- Realiza una aplicación que permita introducir una cadena de 80 caracteres
+como máximo y mostrarla al revés.
  */
 public class Ejercicio10 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         
-        double numero;
-        System.out.print("Dime un numero: ");
-        numero = sc.nextInt();
+        System.out.println("Dime una cadena (menor de 80 caracteres)");
+        String cadena = sc.nextLine();
+            
+            if (cadena.length() > 80) {
+                System.out.println("Inválido, la cadena debe tener menos de 80 caracteres");
+            } else {
+            
+                String inverso = cadenaInversa(cadena);
+                System.out.println("Cadena invertida: " + inverso);
+            }
         
-        Signo(numero);
     }
-    
-    static int Signo(double numero){
-        if(numero < 0){
-            System.out.println("-1");
-        } else if (numero > 0){
-            System.out.println("1");
-        } else if (numero == 0){
-            System.out.println("0");
+    static String cadenaInversa(String cadena){
+        String inversa = "";
+        
+        for (int i = cadena.length() - 1; i >= 0; i--) {
+            inversa += cadena.charAt(i);
         }
-        return 0;
+        
+        return inversa;
     }
 }

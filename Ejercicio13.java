@@ -2,41 +2,48 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Metodos.ejercicios2;
+package Arrays;
 
 import java.util.Scanner;
 
 /**
- * 13. Crea una función "PedirEntero", que reciba como parámetros el valor
- * mínimo aceptable y el valor máximo aceptable que se pide en el programa
- * principal. Deberá pedir al usuario que introduzca un valor dentro del rango
- * anterior, en caso de que el valor introducido no esté dentro del rango se lo
- * volverá a pedir hasta que sea correcto. Cuando esto suceda el mensaje de que
- * el valor está dentro del rango se imprimirá en la función principal.
+ * 13. Crea un programa que rellene un array de 15 datos enteros y luego pida al
+ * usuario el dato a buscar, avise si ese dato no aparece en el array, y que
+ * diga cuántas veces se ha encontrado en caso contrario. Para ello crea las
+ * funciones introducirDato() y buscarDato();
+ *
  */
 public class Ejercicio13 {
 
+    static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
 
-        int minimo, maximo;
-
-        System.out.print("Dime el minimo aceptable: ");
-        minimo = sc.nextInt();
-        System.out.print("Dime el maximo aceptable: ");
-        maximo = sc.nextInt();
-
-        PedirEntero(minimo, maximo);
+        int[] numeros = new int[15];
+        for (int i = 0; i < numeros.length; i++) {
+            numeros = introducirDato(numeros, i);
+        }
+        System.out.println("--------------------------------");
+        System.out.printf("Introduzca el dato a buscar: ");
+        int dato = scanner.nextInt();
+        scanner.nextLine();
+        System.out.printf("Se han encontrado %d ocurrencias del numero %d \n", buscarDato(numeros, dato), dato);
     }
 
-    static int PedirEntero(int minimo, int maximo) {
-        Scanner sc = new Scanner(System.in);
-        int valor;
-        do {
-            System.out.printf("Dime un valor entre %d y %d: ", minimo, maximo);
-            valor = sc.nextInt();
-        } while (valor < minimo || valor > maximo);
-        System.out.println("El valor es correcto");
-        return valor;
+    static int[] introducirDato(int[] array, int i) {
+        System.out.printf("Introduzca el número %d: ", i + 1);
+        array[i] = scanner.nextInt();
+        scanner.nextLine();
+        return array;
+    }
+
+    static int buscarDato(int[] array, int n) {
+        int find = 0;
+        for (int num : array) {
+            if (num == n) {
+                find++;
+            }
+        }
+        return find;
     }
 }

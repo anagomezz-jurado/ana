@@ -2,104 +2,31 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Metodos;
-
-import java.util.Scanner;
+package Arrays.dos;
 
 /**
- 8.- Realiza un método en Java para comprobar si una cadena es una contraseña
-válida.
-Reglas de contraseña:
-a) Una contraseña debe tener al menos ocho caracteres.
-b) Una contraseña consta solo de letras y dígitos.
-c) Una contraseña debe contener al menos 2 dígitos.
-Salida esperada:
-1. Una contraseña debe tener al menos ocho caracteres.
-2. Una contraseña consta solo de letras y dígitos.
-3. Una contraseña debe contener al menos 2 dígitos.
-Introduce una contraseña (Usted acepta los términos y condiciones): abcd1234
-La contraseña es válida: abcd1234
-
+8.- (Ventas Totales) Usa un array bidimensional para resolver el siguiente
+problema: Una compañía tiene 4 vendedores (1 a 4) que venden 5 productos
+diferentes (1 a 5). Una vez al día, cada vendedor pasa un recibo por cada tipo
+de producto vendido. Cada recibo contiene lo siguiente:
+a) El número del vendedor.
+b) El número del producto.
+c) El valor total en dólares de ese producto vendido ese día.
+Por lo tanto, cada vendedor pasa entre 0 y 5 recibos de venta por día. Suponga
+que la información de todos los recibos del último mes está disponible. Realiza
+una aplicación que lea toda esta información de las ventas del mes pasado y
+resuma las ventas totales por vendedor y por producto. Todos los totales de
+ventas deben almacenarse en arrays bidimensionales. Después de procesar
+toda la información del último mes, muestra los resultados en formato tabular,
+con cada columna representando a un vendedor en particular y cada fila
+representando un producto en particular. Haz un total cruzado de cada fila para
+obtener las ventas totales de cada producto durante el último mes. Realiza el
+total cruzado de cada columna para obtener las ventas totales por vendedor del
+último mes. Su salida tabular debe incluir estos totales cruzados a la derecha
+de las filas totalizadas y al final de las columnas totalizadas. 
  */
 public class Ejercicio8 {
-        public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("""
-                           introduce una contreasena valida para que se vaslida tine que contener el siguiente formato 
-                           a) Una contrasena debe tener al menos ocho caracteres.
-                           b) Una contrasena consta solo de letras y didgitos.
-                           c) Una contrasena debe contener al menos 2 digitos""");
-        String password = scanner.nextLine(); 
-        switch (comprobacion(password)) {
-
-            case 1:
-                System.out.println("la contraseña no es valida, segun la regla a");
-                break;
-            case 2:
-                System.out.println("la contraseña no es valida, segun la regla b");
-                break;
-            case 3:
-                System.out.println("la contraseña no es valida, segun la regla c");
-                break;
-                
-                
-
-            default:
-                System.out.printf("la contraseña %s es valida ", password);
-        }
-
-    }
-
-    static int comprobacion(String password) {
-        password = password.toLowerCase();
-        int count = 0, error = 0, countAlfabeto = 0, countNumero = 0;
-        String alfabeto = "qwertyuiopasdfghjklzxcvbnmçñ";
-        String numero = "0123456789";
-//         comprobamos la opcion a
-        if (password.length() < 8) {
-//            la contraseña no es valida, segun la regla a
-            error = 1;
-
-        }
-//         comprobamos la opcion c
-        for (int i = 0; i < password.length(); i++) {
-            for (int j = 0; j < alfabeto.length(); j++) {
-                if (password.charAt(i) == alfabeto.charAt(j)) {
-                    countAlfabeto++;
-
-                }
-
-            }
-           
-        }
-        for (int i = 0; i < password.length(); i++) {
-            for (int j = 0; j < numero.length(); j++) {
-                if (password.charAt(i) == numero.charAt(j)) {
-                    countNumero++;
-
-                }
-
-            }
-
-        }
-        count = countAlfabeto + countNumero;
-        if (count != password.length()) {
-//      la contraseña no es valida, segun la regla b
-            error = 2;
-
-        }
-
-        if (countNumero < 2) {
-//           la contraseña no es valida, segun la regla c
-            error = 3;
-
-        }
+    public static void main(String[] args) {
         
-        return error;
-       
-               
     }
-  
-
 }
