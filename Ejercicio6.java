@@ -2,102 +2,40 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Arrays.dos;
+package buclefor;
 
 import java.util.Scanner;
 
 /**
-6.- (Sistema de reservas de aerolíneas). Una pequeña aerolínea acaba de
-comprar un ordenador para su nuevo sistema automatizado de reservas. Se le
-ha pedido que desarrolle el nuevo sistema. Debe escribir una solicitud para
-asignar asientos en cada vuelo del único avión de la aerolínea (capacidad: 10
-asientos). La aplicación debe mostrar las siguientes alternativas: elegir 1 para
-primera clase y elegir 2 para económica. Si el usuario elige 1, la aplicación
-debe asignar un asiento en la sección de primera clase (asientos 1 a 5). Si el
-usuario elige 2, la aplicación debe asignar un asiento en la sección económica
-(asientos 6-10). Su solicitud debe mostrar una tarjeta de embarque que indique
-el número de asiento de la persona y si está en la sección de primera clase o
-económica del avión.
-Utiliza un array unidimensional de tipo primitivo booleano para representar la
-tabla de asientos del avión. Inicializa todos los elementos del array a falso para
-indicar que todos los asientos están vacíos. A medida que se asigna cada
-asiento, establece los elementos correspondientes del array en verdadero para
-indicar que el asiento ya no está disponible.
-Tu aplicación nunca debe asignar un asiento que ya haya sido asignado.
-Cuando la sección económica está llena, su solicitud debe preguntarle a la
-persona si quiere ser colocado en la sección de primera clase (y viceversa). En
-caso afirmativo, haz la asignación de asiento adecuada. En caso negativo,
-muestra el mensaje “El próximo vuelo sale en 3 horas”.
+ *
+ * @author anago
  */
-
 public class Ejercicio6 {
-     public static void main(String[] args) {
-        final int MAX_CAROS = 5;
-        final int MAX_BARATOS = 5;
-        final int ASIENTOS = MAX_CAROS + MAX_BARATOS;
-
-        boolean[] asientos = new boolean[ASIENTOS];
-
-        int asientosBaratosAsignados = 0;
-        int asientosCarosAsignados = 0;
-
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
-        do {
-            System.out.print("¿Qué asiento desea? (1 primera clase, 2 económico): ");
-            int opcionElegida = sc.nextInt();
-            sc.nextLine();
-            if (opcionElegida == 1) { //Elijo primera clase
-                if (asientosCarosAsignados < MAX_CAROS) {
-                    asientos[asientosCarosAsignados] = true;
-                    asientosCarosAsignados++;
-                    mostrarBillete(asientos, 1, asientosCarosAsignados);
-                } else {
-                    System.out.print("Primera clase completa.¿Desea de segunda clase? (S/N)");
-                    String opcion = sc.nextLine();
-
-                    if (opcion.equalsIgnoreCase("S")) {
-                        if (asientosBaratosAsignados < MAX_BARATOS) {
-                            asientos[MAX_CAROS + asientosBaratosAsignados] = true;
-                            asientosBaratosAsignados++;
-                            mostrarBillete(asientos, 2, asientosBaratosAsignados);
-                        }
-
-                    }
-                }
-            } else //Elijo clase Económica
-            if (asientosBaratosAsignados < MAX_BARATOS) { //Tengo en primera clase
-                asientos[MAX_CAROS + asientosBaratosAsignados] = true;
-                asientosBaratosAsignados++;
-                mostrarBillete(asientos, 2, asientosBaratosAsignados);
-            } else { //Ya no quedan en primera clase
-                System.out.print("Clase económica completa.¿Desea de primera clase? (S/N)");
-                String opcion = sc.nextLine();
-                if (opcion.equalsIgnoreCase("S")) {
-                    if (asientosCarosAsignados < MAX_CAROS) {
-                        asientos[asientosCarosAsignados] = true;
-                        asientosCarosAsignados++;
-                        mostrarBillete(asientos, 1, asientosCarosAsignados);
-                    }
-                }
-            }
-
-        } while (asientosBaratosAsignados + asientosCarosAsignados < ASIENTOS);
-
-        if (asientosBaratosAsignados + asientosCarosAsignados == ASIENTOS) {
-            System.out.println("El próximo vuelo sale en 3 horas");
+        
+        int num1, num2, menor, mayor, i;
+        
+        System.out.println("Dime un número: ");
+        num1 = sc.nextInt();
+        
+        System.out.println("Dime otro número: ");
+        num2 = sc.nextInt();
+        
+        if (num1 < num2){
+            menor = num1;
+            mayor = num2;
+        } else{
+            menor = num2;
+            mayor = num1;
+        }
+        
+        
+        System.out.println("Desde " + menor + " hasta " + mayor + ":");
+        
+        for (i = menor; i <= mayor; i++){
+            System.out.println(i + " ");
         }
     }
-
-    static void mostrarBillete(boolean[] asientos, int clase, int asignado) {
-        System.out.println("===============================================================");
-        System.out.printf("Su billetes es de %s clase y es el número %d%n", clase == 1 ? "Primera" : "Económica", asignado);
-        System.out.println("===============================================================");
-        System.out.println("Estado de los asientos: ");
-        int contador = 0;
-        for (boolean asiento : asientos) {
-            System.out.printf("Asiento %d %s %n", contador++, (asiento?"Ocupado":"Libre"));
-        }   
-    }
-    
+  
 }

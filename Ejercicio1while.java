@@ -10,16 +10,21 @@ import java.util.Scanner;
  *
  * @author anago
  */
-public class Ejercicio9 {
+public class Ejercicio1while {
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
+        int numero;
+        long resultado = 1;
+
+        System.out.println("¿De que número quieres calcular el factorial?: ");
+        numero = sc.nextInt();
         
-        int i;
-        
-        for (i = 0; i <= 100; i++){
-            if (i % 5 == 0 && i % 3 != 0){
-                System.out.println(i);
-            }
+        while (numero>1){
+            resultado *= numero;
+            //numero = numero -1;
+            numero--;
         }
     }
 }
