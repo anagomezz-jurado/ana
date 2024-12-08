@@ -2,50 +2,39 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package ejerifswitch;
-
-import java.util.Scanner;
+package SegundaLista;
 
 /**
  *
  * @author anago
  */
 public class Ejer13 {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+ public static void main(String[] args) {
+        int suma = 0;
+        int CANTIDAD = 100;
+        boolean esPrimo = true;
+        int divisor = 2;
+        int contador = 0; //Números de primos encontrados
+        int numero = 1;//Empiezo por uno
         
-        int numero, digitos;
-        
-        System.out.print("Introduce un número entero (solo puede llegar hasta 5 dígitos): ");
-        numero = sc.nextInt();
-        
-        if (numero < -9999 || numero > 99999){
-            System.out.println("El número no es válido sólo se pueden hasta 5 dígitos");
-        }
-        else{
-            if (numero < 0){
-            numero = -numero;}     
+        while (contador < CANTIDAD){
+            divisor = 2; //Los divisores
             
-            if (numero == 0) {
-                digitos = 1;  
-            } else if (numero < 10) {
-                digitos = 1;
-            } else if (numero < 100) {
-                digitos = 2;
-            } else if (numero < 1000) {
-                digitos = 3;
-            } else if (numero < 10000) {
-                digitos = 4;
-            } else {
-                digitos = 5;
+            while(esPrimo && (divisor <= Math.sqrt(numero))){
+                if(numero % divisor == 0){
+                    esPrimo = false;
+                }
+                divisor++;
             }
-            
-            System.out.println("El número tiene "+digitos+ "digitos(s). ");
-            
+            if (esPrimo){
+                System.out.println(contador + "-Primo: "+numero);
+                suma += numero;
+                contador++;
+            }
+            numero++;
+            esPrimo = true;
         }
-            
-            
-        sc.close();  
         
-        }
-}
+        System.out.println("La suma de los "+CANTIDAD+ " primeros primos es: " + suma);
+ }
+ }

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package ejerifswitch;
+package SegundaLista;
 
 import java.util.Scanner;
 
@@ -14,25 +14,15 @@ public class Ejer7 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         
-        int num; 
+        int año;
         
-        System.out.print("Dime un número: "); 
-        num = sc.nextInt();
+        System.out.println("Introduce un año: ");
+        año = sc.nextInt();
         
-        
-        switch (num) {
-            case 1:
-                System.out.println(" 1.- Procesador de textos ");
-                break;
-            case 2:
-                System.out.println(" 2.- Hoja de cálculo ");
-                break;
-                
-            case 3:
-                System.out.println(" Bases de datos ");
-                break;
-            default:
-                System.out.println("OPCIÓN INCORRECTA");
+        if (año % 4 == 0 && (año % 100 != 0 || año % 400 == 0)){
+            System.out.println(año + " es un año bisiesto");
+        } else {
+            System.out.println(año +" no es un año bisiesto");
         }
     }
 }

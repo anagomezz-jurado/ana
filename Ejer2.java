@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package ejerifswitch;
+package SegundaLista;
 
 import java.util.Scanner;
 
@@ -13,19 +13,27 @@ import java.util.Scanner;
 public class Ejer2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int num;
         
-        System.out.print("Dime un número: ");
-        num = sc.nextInt();
+        int promedio, contador = 0, suma = 0, mayorEdad = 0;
         
-        //Libero buffer
-        sc.nextLine();
-                        
-        if (num % 2==0){
-            System.out.println("El número es par");
+        for (int i = 1; i <= 50; i++){
+            System.out.print("Dime el nombre del estudiante: ");
+            String nombre = sc.nextLine();
+            
+            System.out.print("Dime la edad del estudiante: ");
+            int edad = sc.nextInt();
+            
+            //Liberar buffer
+            sc.nextLine();
+            
+            contador ++;
+            suma += edad;
+            
+            
+        
         }
-        else{
-         System.out.println("El número es impar");
-        }
+        promedio = suma / contador;
+        
+        System.out.println("El promedio de la edad es "+promedio);
     }
 }
